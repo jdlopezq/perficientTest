@@ -1,0 +1,10 @@
+.mat-raised-button {
+  height: 95%;
+  width: 95%;
+  background-color: aliceblue;
+}
+
+::ng-deep .mat-button-wrapper{
+  display: flex;
+  flex-direction: column;
+}

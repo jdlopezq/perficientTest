@@ -29,7 +29,10 @@ export class TrainerRegisterComponent implements OnInit {
       confirmPassword: ['', [Validators.required]],
     });
   }
-  SendTrainerInfo() {}
+  SendTrainerInfo() {
+
+    
+  }
 
   cancel() {
     this.router.navigate(['login'])

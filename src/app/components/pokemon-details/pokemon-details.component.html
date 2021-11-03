@@ -1,1 +1,45 @@
-<p>pokemon-details works!</p>
+<ng-container *ngIf="pokemonDetails; else elseTemplate">
+  <mat-grid-list cols="4" class="gridList" rowHeight="fit">
+    <mat-grid-tile colspan="2" rowspan="1">
+      <div>
+        <h1>{{ pokemonDetails.name | titlecase }}</h1>
+        <img [src]="pokemonDetails.imagePokedex" alt="" />
+      </div>
+    </mat-grid-tile>
+    <mat-grid-tile colspan="2" rowspan="2">
+      <div class="row">
+        <div class="col-12"></div>
+        <div class="col-12">
+          <h3>Skills</h3>
+          <mat-toolbar *ngFor="let move of pokemonMovements">
+            {{ move | replace: "-":" " | titlecase }}
+            <span class="spacer"></span>
+          </mat-toolbar>
+        </div>
+      </div>
+    </mat-grid-tile>
+    <mat-grid-tile colspan="2" rowspan="1">
+      <div class="data">
+        <h1>Datos</h1>
+        <mat-toolbar>
+          Weight
+          <span class="spacer"></span>
+          {{ pokemonStats.weight }}
+        </mat-toolbar>
+        <mat-toolbar>
+          Height
+          <span class="spacer"></span>
+          {{ pokemonStats.height }}
+        </mat-toolbar>
+        <mat-toolbar>
+          tipos
+          <span class="spacer"></span>
+          <span *ngFor="let type of pokemonTypes">{{ type | titlecase }}&nbsp;</span>
+        </mat-toolbar>
+      </div>
+    </mat-grid-tile>
+  </mat-grid-list>
+</ng-container>
+<ng-template #elseTemplate>
+  <h1>Please Select a pokemon</h1>
+</ng-template>

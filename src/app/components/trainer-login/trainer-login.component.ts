@@ -18,20 +18,22 @@ export class TrainerLoginComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.pokemonData.getPokemonImage(Math.floor(Math.random() * 300) + 1).subscribe((url) => {
-      this.pokemonImgUrl = url;
-    });
+    this.pokemonData
+      .getPokemonImage(Math.floor(Math.random() * 300) + 1)
+      .subscribe((url) => {
+        this.pokemonImgUrl = url;
+      });
     this.loginForm = this.fb.group({
       email: ['', [Validators.required]],
       password: ['', [Validators.required]],
     });
   }
 
-
   login() {
     console.log(this.loginForm);
+    this.router.navigate(['pokedex']);
   }
-  register(){
-this.router.navigate(['register'])
+  register() {
+    this.router.navigate(['register']);
   }
 }

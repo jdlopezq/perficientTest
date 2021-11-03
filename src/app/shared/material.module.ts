@@ -12,6 +12,7 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
+import {MatRadioModule} from '@angular/material/radio';
 
 
 @NgModule({
@@ -29,7 +30,8 @@ import {MatInputModule} from '@angular/material/input';
     MatButtonModule,
     MatSidenavModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    MatRadioModule
   ],
   exports: [
     MatGridListModule,
@@ -45,7 +47,8 @@ import {MatInputModule} from '@angular/material/input';
     MatButtonModule,
     MatSidenavModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    MatRadioModule
   ],
   providers: [],
 })
