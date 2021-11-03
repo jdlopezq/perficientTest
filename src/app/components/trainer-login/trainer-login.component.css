@@ -1,0 +1,79 @@
+.container-fluid {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  background-image: url("/assets/img/sm-bg.jpeg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  flex-direction: column;
+}
+.logo {
+  width: 350px;
+}
+
+.mat-card {
+  width: 100%;
+  margin-top: auto;
+}
+.mat-card-content {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 0 30px;
+}
+.mat-form-field {
+  width: 100%;
+  margin: 5px 0;
+}
+.mat-card-actions {
+  display: flex;
+  align-items: center;
+  padding: 10px 30px;
+}
+.mat-button {
+  flex-basis: 50%;
+  color: white;
+}
+.mat-button:first-child {
+  background-color: #ed2729;
+}
+.mat-button:last-child {
+  background-color: #090101;
+}
+.randomImg {
+  display: flex;
+}
+.mat-card-image {
+  width: calc(50% + 32px);
+  margin: auto;
+}
+.mat-card-image:first-child {
+  display: none;
+  margin-top: 0;
+}
+
+.card-header-image {
+  background-image: url("/assets/img/pokebola.png");
+  background-size: cover;
+}
+
+@media only screen and (min-width: 768px) {
+  .container-fluid {
+    background-image: url("/assets/img/lg-bg.jpg");
+    align-items: center;
+    flex-direction: row;
+  }
+  .mat-card {
+    max-width: 350px;
+    margin-left: 120px;
+    margin-top: 0;
+  }
+  .mat-card-image:first-child {
+    display: block;
+    margin-top: 0;
+  }
+  .logo{
+    display: none;
+  }
+}

@@ -1,0 +1,73 @@
+.container-fluid {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background:  linear-gradient(to top right, white 45%, black 50%);
+}
+.mat-card {
+  width: 100%;
+}
+.mat-card-content {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  padding: 0 30px;
+}
+.mat-form-field {
+  width: 100%;
+  margin: 5px 0;
+}
+form{
+  flex-basis: 50%;
+}
+.mat-card-header {
+  justify-content: center;
+}
+
+.mat-card-actions {
+  display: flex;
+  align-items: center;
+  padding: 10px 30px;
+}
+.mat-button {
+  flex-basis: 50%;
+  color: white;
+}
+.mat-button:first-child {
+  background-color: #ed2729;
+}
+.mat-button:last-child {
+  background-color: #090101;
+}
+.randomImg {
+  display: flex;
+  flex-basis: 50%;
+}
+.mat-card-image {
+  width: calc(50% + 32px);
+  margin: auto;
+}
+.mat-card-image:first-child {
+  display: none;
+  margin-top: 0;
+}
+
+.card-header-image {
+  background-image: url("/assets/img/pokebola.png");
+  background-size: cover;
+}
+@media only screen and (min-width: 768px) {
+  .container-fluid {
+    align-items: center;
+
+  }
+  .mat-card {
+    max-width: 950px;
+    margin-top: 0;
+  }
+  .mat-card-image:first-child {
+    display: block;
+    margin-top: 0;
+  }
+}

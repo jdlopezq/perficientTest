@@ -11,6 +11,11 @@ import { PokemonDetailsComponent } from './components/pokemon-details/pokemon-de
 import { PokedexComponent } from './components/pokedex/pokedex.component';
 import { TrainerRegisterComponent } from './components/trainer-register/trainer-register.component';
 import { TrainerLoginComponent } from './components/trainer-login/trainer-login.component';
+//Firebase
+import { AngularFireModule } from "@angular/fire";
+import { AngularFireAuthModule } from "@angular/fire/auth";
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -26,7 +31,10 @@ import { TrainerLoginComponent } from './components/trainer-login/trainer-login.
     AppRoutingModule,
     MaterialModule,
     HttpClientModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireAuthModule,
+    AngularFirestoreModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

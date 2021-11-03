@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "perficienttest-32cd9": {
+      "hosting": {
+        "perficientTest": [
+          "perficienttest-32cd9"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "perficienttest-32cd9"
+  }
+}

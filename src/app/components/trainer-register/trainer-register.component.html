@@ -1,1 +1,48 @@
-<p>trainer-register works!</p>
+<div class="container-fluid">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>Register as a trainer</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <div class="randomImg">
+        <img mat-card-image [src]="pokemonImgUrl" />
+      </div>
+      <form
+        class="ion-text-center"
+        [formGroup]="registerForm"
+        (ngSubmit)="SendTrainerInfo()"
+      >
+      <mat-form-field>
+        <input matInput name="name" formControlName="name" />
+        <mat-icon matPrefix>person</mat-icon>
+        <mat-placeholder>Nombres</mat-placeholder>
+        <mat-error>Campo requerido </mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput name="email" formControlName="email" />
+        <mat-icon matPrefix>mail</mat-icon>
+        <mat-placeholder>Email</mat-placeholder>
+        <mat-error>Campo requerido </mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput name="password" formControlName="password" />
+        <mat-icon matPrefix>lock</mat-icon>
+        <mat-placeholder>Contraseña</mat-placeholder>
+        <mat-error>Campo requerido </mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput name="confirmPassword" formControlName="confirmPassword" />
+        <mat-icon matPrefix>lock</mat-icon>
+        <mat-placeholder>Confirmar contraseña</mat-placeholder>
+        <mat-error>Campo requerido </mat-error>
+      </mat-form-field>
+      </form>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-button [disabled]="!registerForm.valid" type="submit">
+        Sign Up
+      </button>
+      <button mat-button type="button" (click)="cancel()">Cancel</button>
+    </mat-card-actions>
+  </mat-card>
+</div>
