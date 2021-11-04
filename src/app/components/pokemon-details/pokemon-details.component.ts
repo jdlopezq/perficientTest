@@ -18,6 +18,7 @@ export class PokemonDetailsComponent implements OnInit {
       this.pokemonMovements=[]
       this.pokemonDetails = pokemon;
       this.pokemonTypes=pokemon?.types
+      this.pokemonStats['id']=pokemon?.data.id
       this.pokemonStats['height']=pokemon?.data.height
       this.pokemonStats['weight']=pokemon?.data.weight
       pokemon?.data.abilities.forEach((element) => {

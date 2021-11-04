@@ -22,6 +22,11 @@
       <div class="data">
         <h1>Datos</h1>
         <mat-toolbar>
+          Id
+          <span class="spacer"></span>
+          {{ pokemonStats.id }}
+        </mat-toolbar>
+        <mat-toolbar>
           Weight
           <span class="spacer"></span>
           {{ pokemonStats.weight }}
@@ -41,5 +46,7 @@
   </mat-grid-list>
 </ng-container>
 <ng-template #elseTemplate>
-  <h1>Please Select a pokemon</h1>
+  <div class="advise">
+    <h1>Please select a pokemon</h1>
+  </div>
 </ng-template>

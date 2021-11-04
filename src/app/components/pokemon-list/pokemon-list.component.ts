@@ -4,6 +4,7 @@ import { Tile } from '@angular/material/grid-list/tile-coordinator';
 import { Router } from '@angular/router';
 import { PokemonDataService } from 'src/app/services/pokemon-data.service';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { MatTableDataSource } from '@angular/material/table';
 
 @Component({
   selector: 'app-pokemon-list',
@@ -13,6 +14,9 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 export class PokemonListComponent implements OnInit {
   pokemons = [];
   filterForm: FormGroup;
+  displayedColumns = ['position', 'name', 'picture'];
+  dataSource;
+  
   constructor(
     private pokemonData: PokemonDataService,
     private router: Router,
@@ -21,13 +25,6 @@ export class PokemonListComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.filterForm = this.fb.group({
-      searchBy: [''],
-      input: [''],
-      number: [''],
-      limit: [''],
-    });
-
     this.pokemonData.getCoutedPokemonList(0,150).subscribe((data) => {
       this.pokemons = data.results;
       this.pokemons.forEach((pokemon, index) => {
@@ -35,6 +32,7 @@ export class PokemonListComponent implements OnInit {
           .getPokemonByName(pokemon.name)
           .subscribe((data: any) => {
             this.pokemons[index]['data'] = data;
+            this.pokemons[index]['id'] = data.id;
             this.pokemons[index]['image'] = data.sprites.front_default;
             this.pokemons[index]['imagePokedex'] =
               data.sprites.other.dream_world.front_default;
@@ -44,11 +42,16 @@ export class PokemonListComponent implements OnInit {
             });
           });
       });
-      console.log(this.pokemons);
+      this.dataSource = new MatTableDataSource(this.pokemons)
     });
   }
   selectPokemon(pokemon) {
     this.dataService.sendPokemon(pokemon);
+  }
+  applyFilter(filterValue: string) {
+    filterValue = filterValue.trim(); // Remove whitespace
+    filterValue = filterValue.toLowerCase(); // MatTableDataSource defaults to lowercase matches
+    this.dataSource.filter = filterValue;
   }
   SendPokemonQuery() {}
 }

@@ -28,3 +28,9 @@ div img {
   flex-direction: column;
   width: 100%;
 }
+.advise{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}

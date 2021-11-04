@@ -1,8 +1,44 @@
-<form
+
+<div class="mt-2">
+<div class="header sticky-top">
+  <mat-form-field>
+    <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter By Name Only....">
+  </mat-form-field>
+</div>
+
+<mat-table #table [dataSource]="dataSource" class="mt-2">
+<ng-container>
+  <!-- Position Column -->
+  <ng-container matColumnDef="position">
+    <mat-header-cell *matHeaderCellDef> No. </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.id}} </mat-cell>
+  </ng-container>
+
+  <!-- Name Column -->
+  <ng-container matColumnDef="name">
+    <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.name | titlecase}} </mat-cell>
+  </ng-container>
+
+  <!-- Symbol Column -->
+  <ng-container matColumnDef="picture">
+    <mat-header-cell *matHeaderCellDef> Image </mat-header-cell>
+    <mat-cell *matCellDef="let element"> <img [src]="element.image" alt=""> </mat-cell>
+  </ng-container>
+
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns;" (click)="selectPokemon(row)"></mat-row>
+</ng-container>
+</mat-table>
+</div>
+
+
+
+<!-- <form
   class="ion-text-center"
   [formGroup]="filterForm"
   (ngSubmit)="SendPokemonQuery()"
->
+> -->
   <!-- <mat-form-field>
     <mat-radio-group name ="searchBy" formControlName="searchBy">
       <mat-radio-button value="type">Type</mat-radio-button>
@@ -10,13 +46,13 @@
     </mat-radio-group>
   </mat-form-field> -->
 
-  <mat-form-field>
+  <!-- <mat-form-field>
     <input matInput name="input" formControlName="input" />
     <mat-placeholder>Pokemon name</mat-placeholder>
   </mat-form-field>
-</form>
+</form> -->
 
-<mat-grid-list cols="3" rowHeight="200px">
+<!-- <mat-grid-list cols="3" rowHeight="200px">
   <mat-grid-tile
     *ngFor="let pokemon of pokemons"
     colspan="1"
@@ -28,4 +64,4 @@
       <span>{{ pokemon.name }}</span>
     </button>
   </mat-grid-tile>
-</mat-grid-list>
+</mat-grid-list> -->

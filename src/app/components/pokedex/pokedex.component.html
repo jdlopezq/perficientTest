@@ -1,3 +1,18 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <span>Pokedex</span>
+    <span class="spacer"></span>
+    <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+      <mat-icon>more_vert</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item (click)="exit()">
+        <mat-icon>exit_to_app</mat-icon>
+        <span>LogOut</span>
+      </button>
+    </mat-menu>
+  </mat-toolbar-row>
+</mat-toolbar>
 <div class="container-fluid">
   <div class="row">
     <div class="col-3">
@@ -8,3 +23,4 @@
     </div>
   </div>
 </div>
+

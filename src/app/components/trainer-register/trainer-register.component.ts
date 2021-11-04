@@ -31,7 +31,7 @@ export class TrainerRegisterComponent implements OnInit {
   }
   SendTrainerInfo() {
 
-    
+    this.registerForm.value
   }
 
   cancel() {

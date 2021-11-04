@@ -8,3 +8,18 @@
   display: flex;
   flex-direction: column;
 }
+
+.mat-row:hover{
+  background-color: yellowgreen;
+}
+.header{
+  background-color: white;
+  width: 100%;
+}
+.mat-form-field{
+  width: 100%;
+}
+.container
+{
+  height: 100vh;
+}
