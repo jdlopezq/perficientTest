@@ -2,6 +2,7 @@ import { PokemonDataService } from './../../services/pokemon-data.service';
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-trainer-login',
@@ -11,10 +12,12 @@ import { Router } from '@angular/router';
 export class TrainerLoginComponent implements OnInit {
   public pokemonImgUrl: string;
   public loginForm: FormGroup;
+  hide = true;
   constructor(
     private fb: FormBuilder,
     private pokemonData: PokemonDataService,
-    private router: Router
+    private router: Router,
+    private _auth: AuthService
   ) {}
 
   ngOnInit(): void {
@@ -30,8 +33,7 @@ export class TrainerLoginComponent implements OnInit {
   }
 
   login() {
-    console.log(this.loginForm);
-    this.router.navigate(['pokedex']);
+    this._auth.SignIn(this.loginForm.value.email, this.loginForm.value.password)
   }
   register() {
     this.router.navigate(['register']);

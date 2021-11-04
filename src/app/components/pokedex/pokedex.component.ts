@@ -1,3 +1,4 @@
+import { AuthService } from './../../services/auth.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
@@ -7,10 +8,10 @@ import { Router } from '@angular/router';
   styleUrls: ['./pokedex.component.css'],
 })
 export class PokedexComponent implements OnInit {
-  constructor(private router: Router) {}
+  constructor(private router: Router, private authService: AuthService) {}
   showFiller = false;
   ngOnInit(): void {}
   exit() {
-    this.router.navigate(['login']);
+    this.authService.SignOut().then(()=>this.router.navigate(['login']))
   }
 }

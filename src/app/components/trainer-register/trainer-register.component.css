@@ -70,4 +70,7 @@ form{
     display: block;
     margin-top: 0;
   }
+  .verifyInfo{
+    text-align: center;
+  }
 }

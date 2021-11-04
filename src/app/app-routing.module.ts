@@ -1,3 +1,4 @@
+import { AuthGuard } from './shared/guard/auth.guard';
 import { PokedexComponent } from './components/pokedex/pokedex.component';
 import { TrainerRegisterComponent } from './components/trainer-register/trainer-register.component';
 import { TrainerLoginComponent } from './components/trainer-login/trainer-login.component';
@@ -9,8 +10,8 @@ const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: 'login', component: TrainerLoginComponent },
   { path: 'register', component: TrainerRegisterComponent },
-  { path: 'pokedex', component: PokedexComponent },
-  {path: 'list', component: PokemonListComponent}, 
+  { path: 'pokedex', component: PokedexComponent, canActivate: [AuthGuard] },
+  {path: 'list', component: PokemonListComponent},
   { path: '**', pathMatch: 'full', redirectTo: '/login' }
 ];
 

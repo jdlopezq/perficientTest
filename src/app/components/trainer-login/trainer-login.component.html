@@ -18,7 +18,10 @@
           <mat-error>Campo requerido </mat-error>
         </mat-form-field>
         <mat-form-field>
-          <input matInput name="password" formControlName="password" />
+          <input matInput [type]="hide ? 'password' : 'text'" name="password" formControlName="password" />
+          <button mat-icon-button matSuffix type="button" (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+          </button>
           <mat-icon matPrefix>lock</mat-icon>
           <mat-placeholder>Contraseña</mat-placeholder>
           <mat-error>Campo requerido </mat-error>

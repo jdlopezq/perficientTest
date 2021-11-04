@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AuthService } from 'src/app/services/auth.service';
 import { PokemonDataService } from 'src/app/services/pokemon-data.service';
 
 @Component({
@@ -12,10 +13,13 @@ export class TrainerRegisterComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private pokemonData: PokemonDataService,
-    private router: Router
+    private router: Router,
+    public authService: AuthService
   ) {}
   public pokemonImgUrl: string;
   public registerForm: FormGroup;
+  public singedUp = false;
+  hide = true;
   ngOnInit(): void {
     this.pokemonData
       .getPokemonImage(Math.floor(Math.random() * 300) + 1)
@@ -30,11 +34,12 @@ export class TrainerRegisterComponent implements OnInit {
     });
   }
   SendTrainerInfo() {
-
-    this.registerForm.value
+    this.authService
+      .SignUp(this.registerForm.value.email, this.registerForm.value.password)
+      .then(() => (this.singedUp = true));
   }
 
   cancel() {
-    this.router.navigate(['login'])
+    this.router.navigate(['login']);
   }
 }
